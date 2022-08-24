@@ -3,4 +3,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :auctions do 
+    resources :bids, only: [:create, :destroy]
+  end
+  resources :users, only: [:create] do
+    get :current, on: :collection
+  end
+  resource :session, only: [:create, :destroy]
+  match "*unmatched_route", to: "application#not_found", via: :all
 end

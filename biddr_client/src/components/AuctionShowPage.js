@@ -37,7 +37,7 @@ export default function AuctionShowPage(props){
                 return
             }
         }
-        setState({...state, bid: {...state.bid, [name]: value}})
+        setState({...state, bid: {...state.bid, [name]: parseFloat(value)}})
     }
 
     const createBid = (e) => {
@@ -47,6 +47,7 @@ export default function AuctionShowPage(props){
                 console.log(`Errors: ${bid.errors}`)
                 setState({...state, errors: bid.errors})
             } else {
+                setState({...state, auction: {...state.auction, price: state.bid.price}})
                 Auction.update(state.auction.id, state.auction).then(() => {
                     setState({...state, isLoading: true})
                 })

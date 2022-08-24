@@ -30,7 +30,6 @@ function App() {
   }, [])
 
   const destroySession = () => {
-    document.location.reload()
     Session.destroy().then(setState({currentUser: null}));
   }
 

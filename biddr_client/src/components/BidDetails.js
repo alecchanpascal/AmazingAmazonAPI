@@ -11,9 +11,7 @@ export default function BidDetails(props){
         <p className="date">
           Bid Received: {new Date(created_at).toDateString().replace(' ', ', ')} at {new Date(created_at).toTimeString()}
         </p>
-        {(props.user === bidder.user || props.user.admin) &&
         <button className="ui right floated red button" onClick={props.deleteBid}>Delete</button>
-        }
       </div>
     )
 }

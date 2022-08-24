@@ -14,9 +14,7 @@ export default function AuctionDetails(props) {
         <p className="date">
             Ends: {new Date(props.auction.end_date).toDateString().replace(' ', ', ')} at {new Date(props.auction.end_date).toTimeString()}
         </p>
-        {(props.user === props.auction.user || props.user.admin) && 
-            <button className="ui right floated red button" onClick={props.delete}>Delete</button>
-        }
+        <button className="ui right floated red button" onClick={props.delete}>Delete</button>
       </>
     )
 }
